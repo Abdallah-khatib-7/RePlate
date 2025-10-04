@@ -1,10 +1,12 @@
-// src/App.jsx
+// src/App.jsx - FIXED WITH CORRECT PATHS
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';  // YOUR STRUCTURE
-import Navbar from './components/Navbar';              // YOUR STRUCTURE
-import Footer from './components/Footer';              // YOUR STRUCTURE
-import AppRouter from './router/AppRouter';            // YOUR STRUCTURE
+
+// ✅ CORRECT IMPORTS - FOLLOWING YOUR EXACT STRUCTURE
+import { AuthProvider } from './context/AuthContext';    // Correct path
+import Navbar from './components/Navbar';                // Correct path  
+import Footer from './components/Footer';                // Correct path
+import AppRouter from './router/AppRouter';              // Correct path
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
           <Navbar />
           <main className="flex-grow">
             <AppRouter />
+          
           </main>
           <Footer />
         </div>
