@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { LogoWithText } from './logo';
 
 const Navbar = () => {
   return (
@@ -8,12 +9,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">R</span>
-            </div>
-            <span className="text-2xl font-bold text-gray-800">RePlate</span>
-          </Link>
+             <Link to="/">
+                <LogoWithText className="w-36" />
+             </Link>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
