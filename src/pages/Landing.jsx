@@ -2,6 +2,8 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import FeatureCard from '../components/FeatureCard';
+import Chatbot from '../components/ChatBot';
+
 
 const Landing = () => {
   const features = [
@@ -80,6 +82,7 @@ const Landing = () => {
           </div>
         </div>
       </section>
+      <Chatbot />
     </div>
   );
 };

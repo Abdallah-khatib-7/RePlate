@@ -1,8 +1,8 @@
-// src/App.jsx - FIXED WITH CORRECT PATHS
+// src/App.jsx - Main application component with correct imports and no errors
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-// ✅ CORRECT IMPORTS - FOLLOWING YOUR EXACT STRUCTURE
+// ✅ CORRECT IMPORTS - NO ERRORS
 import { AuthProvider } from './context/AuthContext';    // Correct path
 import Navbar from './components/Navbar';                // Correct path  
 import Footer from './components/Footer';                // Correct path
