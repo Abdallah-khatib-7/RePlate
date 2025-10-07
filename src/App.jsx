@@ -1,4 +1,3 @@
-// src/App.jsx - Main application component with correct imports and no errors
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -6,7 +5,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';    // Correct path
 import Navbar from './components/Navbar';                // Correct path  
 import Footer from './components/Footer';                // Correct path
-import AppRouter from './router/AppRouter';              // Correct path
+import AppRouter from './router/AppRouter';      
+import MainDashboard from './pages/MainDashboard';
+
+      // Correct path
 
 function App() {
   return (

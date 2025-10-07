@@ -69,7 +69,7 @@ const Register = () => {
     localStorage.setItem('userName', `${formData.firstName} ${formData.lastName}`);
     
     setIsLoading(false);
-    navigate('/dashboard');
+    navigate('/main-dashboard');
   };
 
   const userTypes = [
@@ -399,7 +399,7 @@ const Register = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:transform-none relative overflow-hidden group transform transition-all duration-500 delay-800"
+                className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:transform-none relative overflow-hidden group transform duration-500 delay-800"
               >
                 <span className="relative z-10">
                   {isLoading ? 'Creating Account...' : `Join as ${userType === 'foodLover' ? 'Food Lover' : 'Restaurant Partner'}`}

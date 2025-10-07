@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
              <Link to="/">
-                <LogoWithText className="w-36" />
+                <LogoWithText ame="w-36" />
              </Link>
 
           {/* Navigation Links */}

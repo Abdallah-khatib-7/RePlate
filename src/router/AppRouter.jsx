@@ -13,6 +13,7 @@ import PostFood from '../pages/PostFood';
 import ClaimFood from '../pages/ClaimFood';
 import Admin from '../pages/Admin';
 import NotFound from '../pages/NotFound';
+import MainDashboard from '../pages/MainDashboard';
 
 const AppRouter = () => {
   return (
@@ -23,6 +24,7 @@ const AppRouter = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/main-dashboard" element={<MainDashboard />} />
       
       {/* Protected Routes */}
       <Route path="/dashboard" element={<Dashboard />} />

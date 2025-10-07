@@ -36,7 +36,7 @@ const Login = () => {
     localStorage.setItem('userEmail', formData.email);
     
     setIsLoading(false);
-    navigate('/dashboard');
+    navigate('/main-dashboard.jsx');
   };
 
   const socialLogins = [
