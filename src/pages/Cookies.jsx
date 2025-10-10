@@ -15,7 +15,7 @@ const CookiePolicy = () => {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">What Are Cookies?</h2>
               <p>
-                **Cookies** are small text files stored on your device when you visit our website. 
+                <b>Cookies</b> are small text files stored on your device when you visit our website. 
                 These files help us remember your preferences and improve your experience on our platform.
               </p>
             </section>
@@ -87,9 +87,9 @@ const CookiePolicy = () => {
             <section className="text-center bg-green-50 rounded-2xl p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-3">Questions About Cookies?</h3>
               <p className="text-gray-700">
-                support@replate-lb.com
+                abdallah.khatib2003@gmail.com
                 <br />
-                +961 1 123 456
+                +961 03806359
               </p>
             </section>
           </div>

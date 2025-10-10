@@ -20,18 +20,33 @@ const Footer = () => {
               Reducing food waste, one meal at a time. Join our mission to feed communities and protect our planet.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                📘
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                🐦
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                📸
-              </a>
-            </div>
-          </div>
 
+ <div className="flex space-x-4">
+  <a href="#" className="hover:opacity-80 transition-opacity duration-200">
+    <img 
+      src="/linkedin.png" 
+      alt="LinkedIn" 
+      className="w-6 h-6"
+    />
+  </a>
+  <a href="#" className="hover:opacity-80 transition-opacity duration-200">
+    <img 
+      src="/twitter.png" 
+      alt="Twitter" 
+      className="w-6 h-6"
+    />
+  </a>
+  <a href="#" className="hover:opacity-80 transition-opacity duration-200">
+    <img 
+      src="/instagram.png" 
+      alt="Instagram" 
+      className="w-6 h-6"
+    />
+  </a>
+</div>
+</div>
+          </div>
+               
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
@@ -47,10 +62,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">How It Works</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Blog</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">FAQ</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Support</a></li>
+              <li><Link to="/how-it-works" className="text-gray-400 hover:text-white transition-colors duration-200">How It Works</Link></li>
+              <li><Link to="/blog" className="text-gray-400 hover:text-white transition-colors duration-200">Blog</Link></li>
+              <li><Link to="/faq" className="text-gray-400 hover:text-white transition-colors duration-200">FAQ</Link></li>
+              <li><Link to="/support" className="text-gray-400 hover:text-white transition-colors duration-200">Support</Link></li>
             </ul>
           </div>
 

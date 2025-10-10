@@ -33,7 +33,7 @@ const FAQ = () => {
     },
     {
       question: "What is RePlate's commission?",
-      answer: "We take a **15% commission** on every sale. This helps us maintain and develop the platform."
+      answer: "We take a 10% commission on every sale. This helps us maintain and develop the platform."
     },
     {
       question: "Can I cancel an order?",
@@ -81,10 +81,10 @@ const FAQ = () => {
             <p className="mb-4 text-blue-100">Our support team is ready to assist you 24/7.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="mailto:support@replate-lb.com" className="bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
-                support@replate-lb.com
+                abdalah.khatib2003@gmail.com
               </a>
-              <a href="tel:+9611123456" className="bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
-                +961 1 123 456
+              <a href="tel:+96103806359" className="bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                +961 03806359
               </a>
             </div>
           </div>

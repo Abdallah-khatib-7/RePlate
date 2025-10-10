@@ -17,8 +17,8 @@ const TermsOfService = () => {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
               <p>
-                Welcome to **RePlate**. By using our platform, you agree to be bound by these Terms and Conditions.
-                Our headquarters are located in **Lebanon**, and these terms are governed by Lebanese laws and regulations.
+                Welcome to <b>RePlate</b>. By using our platform, you agree to be bound by these Terms and Conditions.
+                Our headquarters are located in <b>Lebanon</b>, and these terms are governed by Lebanese laws and regulations.
               </p>
             </section>
 
@@ -38,14 +38,14 @@ const TermsOfService = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">User Responsibilities</h2>
               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
                 <p className="text-yellow-700">
-                  <strong>Important Note:</strong> RePlate is an intermediary platform and is **not responsible** for the quality of food provided by Restaurants.
+                  <strong>Important Note:</strong> RePlate is an intermediary platform and is <b>not responsible</b> for the quality of food provided by Restaurants.
                 </p>
               </div>
               <ul className="list-disc list-inside space-y-2">
-                <li>You must be **over 18** years old to use the platform.</li>
-                <li>Responsibility for food quality lies with the **Restaurant**.</li>
-                <li>Food must be inspected before consumption.</li>
-                <li>Adherence to the agreed-upon **pickup times**.</li>
+                <li>You must be <b>over 18</b> years old to use the platform.</li>
+                <li>Responsibility for food quality lies with the <b>Restaurant</b>.</li>
+                <li>Food must be inspected <b>before consumption</b>.</li>
+                <li>Adherence to the agreed-upon pickup times.</li>
               </ul>
             </section>
 
@@ -53,10 +53,10 @@ const TermsOfService = () => {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Restaurant Responsibilities</h2>
               <ul className="list-disc list-inside space-y-2">
-                <li>Ensuring the food is **fit for human consumption**.</li>
-                <li>Appropriate **packaging** of the food.</li>
-                <li>**Disclosing** food ingredients to Users.</li>
-                <li>Adherence to **Lebanese food safety** regulations.</li>
+                <li>Ensuring the food is <b>fit for human consumption</b>.</li>
+                <li>Appropriate <b>packaging</b> of the food.</li>
+                <li><b>Disclosing</b> food ingredients to Users.</li>
+                <li>Adherence to <b>Lebanese food safety</b> regulations.</li>
               </ul>
             </section>
 
@@ -64,10 +64,10 @@ const TermsOfService = () => {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Payments & Refunds</h2>
               <ul className="list-disc list-inside space-y-2">
-                <li>All transactions are in **Lebanese Lira (LBP)**.</li>
-                <li>**No refunds** after the food has been collected/received.</li>
-                <li>In case of unavailability, a **full refund** will be issued.</li>
-                <li>The platform takes a **15% commission** on every sale.</li>
+                <li>All transactions are in <b>Lebanese Lira (LBP) OR USD dollars.</b></li>
+                <li><b>No refunds</b> after the food has been collected/received.</li>
+                <li>In case of unavailability, a <b>full refund will be issued.</b></li>
+                <li>The platform takes a <b>10% commission on every sale.</b></li>
               </ul>
             </section>
 
@@ -75,8 +75,8 @@ const TermsOfService = () => {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Governing Law</h2>
               <p>
-                This agreement is governed by the laws and regulations of **Lebanon**. Any disputes arising from these terms
-                will be settled in the courts of **Beirut, Lebanon**.
+                This agreement is governed by the laws and regulations of <b>Lebanon</b>. Any disputes arising from these terms
+                will be settled in the courts of <b>Beirut, Lebanon</b>.
               </p>
             </section>
 
@@ -86,14 +86,14 @@ const TermsOfService = () => {
               <p className="text-gray-700">
                 For inquiries regarding the Terms of Service, please contact us at:
                 <br />
-                <strong>Email:</strong> legal@replate-lb.com
+                <strong>Email:</strong> abdallah.khatib2003@gmail.com
                 <br />
-                <strong>Phone:</strong> +961 1 123 456
+                <strong>Phone:</strong> +961 03806359
               </p>
             </section>
 
             <div className="text-center text-sm text-gray-500 mt-8">
-              Last Updated: December 2024
+              Last Updated: October 10, 2025  
             </div>
           </div>
         </div>

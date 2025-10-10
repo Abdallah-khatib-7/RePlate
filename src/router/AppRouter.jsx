@@ -19,6 +19,8 @@ import PrivacyPolicy from '../pages/PrivacyPolicy';
 import Cookies from '../pages/Cookies';
 import FAQ from '../pages/FAQ';
 import Support from '../pages/Support';
+import Blog from '../pages/Blog';
+import HowItWorks from '../pages/HowItWorks';
 
 const AppRouter = () => {
   return (
@@ -37,6 +39,8 @@ const AppRouter = () => {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/support" element={<Support />} />     
         <Route path="/main-dashboard" element={<MainDashboard />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
           
         {/* Protected Routes */}
         <Route path="/dashboard" element={<Dashboard />} />

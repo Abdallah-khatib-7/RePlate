@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Protecting Your Data in Lebanon</h2>
               <p>
-                At **RePlate**, we respect your privacy and are committed to protecting your personal data in accordance with 
+                At <b>RePlate</b>, we respect your privacy and are committed to protecting your personal data in accordance with 
                 Lebanese laws and international best practices. This policy outlines how we handle your information.
               </p>
             </section>
@@ -70,7 +70,7 @@ const PrivacyPolicy = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Data Security</h2>
               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
                 <p className="text-yellow-700">
-                  <strong>Data Storage:</strong> All data is stored on secure servers. We do **not** share your personal data with third parties without your consent, except when required by Lebanese law.
+                  <strong>Data Storage:</strong> All data is stored on secure servers. We do <b>not</b> share your personal data with third parties without your consent, except when required by Lebanese law.
                 </p>
               </div>
             </section>
@@ -79,10 +79,10 @@ const PrivacyPolicy = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Your Rights</h2>
               <div className="bg-green-50 rounded-xl p-6">
                 <ul className="list-disc list-inside space-y-2 text-green-900">
-                  <li>The right to **access** your data</li>
-                  <li>The right to **rectify** information</li>
-                  <li>The right to **delete** your account</li>
-                  <li>The right to **object** to processing</li>
+                  <li>The right to <b>access</b> your data</li>
+                  <li>The right to <b>rectify</b> information</li>
+                  <li>The right to <b>delete</b> your account</li>
+                  <li>The right to <b>object</b> to processing</li>
                 </ul>
               </div>
             </section>
@@ -92,9 +92,9 @@ const PrivacyPolicy = () => {
               <p className="text-gray-700">
                 For privacy inquiries:
                 <br />
-                <strong>privacy@replate-lb.com</strong>
+                <strong>abdallah.khatib2003@gmail.com</strong>
                 <br />
-                +961 1 123 456
+                +961 03806359
               </p>
             </section>
           </div>

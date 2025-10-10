@@ -153,14 +153,14 @@ const Support = () => {
                   <span className="text-2xl">📧</span>
                   <div>
                     <div className="font-semibold">Email</div>
-                    <div>support@replate-lb.com</div>
+                    <div>abdallah.khatib2003@gmail.com</div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-2xl">📞</span>
                   <div>
                     <div className="font-semibold">Phone</div>
-                    <div>+961 1 123 456</div>
+                    <div>+961 03806359</div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -180,7 +180,7 @@ const Support = () => {
                 In case of a serious food safety concern, please call us immediately:
               </p>
               <div className="flex items-center space-x-2">
-                <span className="text-red-600 font-bold">+961 70 123 456</span>
+                <span className="text-red-600 font-bold">+961 03806359</span>
                 <span className="text-red-500 text-sm">(Hotline)</span>
               </div>
             </div>
