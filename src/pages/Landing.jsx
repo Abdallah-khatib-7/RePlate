@@ -36,26 +36,91 @@ const Landing = () => {
       </p>
     </div>
 
-    {/* Impact Stats - VISUALLY STUNNING */}
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-      {[
-        { number: '1.3B', label: 'Tons of Food Wasted Yearly', icon: '🗑️', color: 'red' },
-        { number: '800M', label: 'People Go Hungry Daily', icon: '🍽️', color: 'orange' },
-        { number: '8%', label: 'Global Greenhouse Gases from Food Waste', icon: '🌍', color: 'blue' },
-        { number: '$1T', label: 'Economic Loss Annually', icon: '💰', color: 'purple' }
-      ].map((stat, index) => (
-        <div 
-          key={index}
-          className="bg-white rounded-2xl shadow-lg p-6 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl border border-gray-100"
-        >
-          <div className={`text-3xl mb-3 ${stat.color === 'red' ? 'text-red-500' : stat.color === 'orange' ? 'text-orange-500' : stat.color === 'blue' ? 'text-blue-500' : 'text-purple-500'}`}>
-            {stat.icon}
-          </div>
-          <div className="text-2xl font-bold text-gray-900 mb-2">{stat.number}</div>
-          <div className="text-sm text-gray-600 leading-tight">{stat.label}</div>
+    {/* Impact Stats - VISUALLY STUNNING WITH IMAGES */}
+<div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+  {[
+    { 
+      number: '1.3B', 
+      label: 'Tons of Food Wasted Yearly', 
+      image: 'https://www.aljazeera.com/wp-content/uploads/2019/10/f95bb1322bbc45cc844bbe173b07374a_18.jpeg?quality=80', 
+      color: 'red' 
+    },
+    { 
+      number: '800M', 
+      label: 'People Go Hungry Daily', 
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw2ldmIDAoXFAYRaLhDHY9pTPSyY9Uc12oVA&s', 
+      color: 'orange' 
+    },
+    { 
+      number: '8%', 
+      label: 'Global Greenhouse Gases from Food Waste', 
+      image: 'https://avristech.com/wp-content/uploads/2021/02/chugg-reduces-greenhouse-gas.jpg', 
+      color: 'blue' 
+    },
+    { 
+      number: '$1T', 
+      label: 'Economic Loss Annually', 
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=200&h=200', 
+      color: 'purple' 
+    }
+  ].map((stat, index) => (
+    <div 
+      key={index}
+      className="bg-white rounded-2xl shadow-xl p-6 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-2xl border-0 group relative overflow-hidden"
+    >
+      {/* Background Gradient Overlay on Hover */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${
+        stat.color === 'red' ? 'from-red-50 to-pink-50' : 
+        stat.color === 'orange' ? 'from-orange-50 to-amber-50' : 
+        stat.color === 'blue' ? 'from-blue-50 to-cyan-50' : 
+        'from-purple-50 to-violet-50'
+      } opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+      
+      {/* Image Container */}
+      <div className="relative z-10 mb-4">
+        <div className="w-20 h-20 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <img 
+            src={stat.image} 
+            alt={stat.label}
+            className="w-full h-full object-cover"
+          />
         </div>
-      ))}
+        {/* Floating Badge */}
+        <div className={`absolute -top-2 -right-2 w-8 h-8 rounded-full ${
+          stat.color === 'red' ? 'bg-red-500' : 
+          stat.color === 'orange' ? 'bg-orange-500' : 
+          stat.color === 'blue' ? 'bg-blue-500' : 
+          'bg-purple-500'
+        } flex items-center justify-center text-white text-sm font-bold shadow-lg`}>
+          !
+        </div>
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10">
+        <div className={`text-3xl font-bold mb-2 ${
+          stat.color === 'red' ? 'text-red-600' : 
+          stat.color === 'orange' ? 'text-orange-600' : 
+          stat.color === 'blue' ? 'text-blue-600' : 
+          'text-purple-600'
+        } group-hover:scale-110 transition-transform duration-300`}>
+          {stat.number}
+        </div>
+        <div className="text-sm text-gray-700 leading-tight font-medium group-hover:text-gray-900 transition-colors duration-300">
+          {stat.label}
+        </div>
+      </div>
+      
+      {/* Bottom Border Effect */}
+      <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 ${
+        stat.color === 'red' ? 'bg-red-500' : 
+        stat.color === 'orange' ? 'bg-orange-500' : 
+        stat.color === 'blue' ? 'bg-blue-500' : 
+        'bg-purple-500'
+      } group-hover:w-3/4 transition-all duration-300 rounded-full`}></div>
     </div>
+  ))}
+</div>
 
     {/* How RePlate Solves This - PERSUASIVE FLOW */}
     <div className="bg-white rounded-3xl shadow-2xl p-8 mb-16">
