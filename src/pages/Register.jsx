@@ -15,7 +15,7 @@ const Register = () => {
     password: '',
     confirmPassword: '',
     
-    // Restaurant Information (conditionally shown)
+    // Restaurant Information 
     restaurantName: '',
     restaurantType: '',
     address: '',

@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-// ✅ CORRECT IMPORTS - NO ERRORS
+
 import { AuthProvider } from './context/AuthContext';    // Correct path
 import Navbar from './components/Navbar';                // Correct path  
 import Footer from './components/Footer';                // Correct path
 import AppRouter from './router/AppRouter';      
 import MainDashboard from './pages/MainDashboard';
 
-      // Correct path
+      
 
 function App() {
   return (
