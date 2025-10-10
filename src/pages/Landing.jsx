@@ -3,6 +3,7 @@ import React from 'react';
 import HeroSection from '../components/HeroSection';
 import FeatureCard from '../components/FeatureCard';
 import Chatbot from '../components/ChatBot';
+import { Link } from 'react-router-dom';
 
 
 const Landing = () => {
@@ -207,14 +208,14 @@ const Landing = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-white text-green-600 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-xl flex items-center space-x-3">
+            <Link to="/login" className="bg-white text-green-600 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-xl flex items-center space-x-3">
               <span>🚀</span>
               <span>Start Saving Food Now</span>
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-green-600 transition-all duration-200 flex items-center space-x-3">
+            </Link>
+            <Link to="/login" className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-green-600 transition-all duration-200 flex items-center space-x-3">
               <span>🏪</span>
               <span>List Your Restaurant</span>
-            </button>
+            </Link>
           </div>
           
           <p className="text-green-100 mt-6 text-sm">

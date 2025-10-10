@@ -1,5 +1,6 @@
 // src/components/HeroSection.jsx - FOLLOWING YOUR STRUCTURE
 import React from 'react';
+import { Link } from 'react-router-dom'; // Add this import
 
 const HeroSection = () => {
   return (
@@ -21,14 +22,20 @@ const HeroSection = () => {
         </p>
         
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-          <button className="bg-green-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-600 transition-colors duration-200 shadow-lg hover:shadow-xl">
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+       <Link 
+        to="/login" 
+      className="bg-green-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-600 transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
+        >
             Find Food Near You
-          </button>
-          <button className="border-2 border-green-500 text-green-500 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-500 hover:text-white transition-all duration-200">
-            List Surplus Food
-          </button>
-        </div>
+      </Link>
+      <Link 
+      to="/login" 
+      className="border-2 border-green-500 text-green-500 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-500 hover:text-white transition-all duration-200 transform hover:scale-105 text-center"
+  >
+         List Surplus Food
+      </Link>
+</div>
         
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
