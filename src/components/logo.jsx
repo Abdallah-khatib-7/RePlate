@@ -1,5 +1,7 @@
 // src/components/Logo.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Landing from '../pages/Landing';
 
 export const Logo = ({ className = "w-8 h-8" }) => {
   return (
@@ -30,7 +32,9 @@ export const LogoWithText = ({ className = "w-32" }) => {
   return (
     <div className={`flex items-center space-x-3 ${className}`}>
       <Logo className="w-10 h-10" />
-      <span className="text-2xl font-bold text-gray-900">RePlate</span>
+      <Link to="/">
+        <span className="text-2xl font-bold text-gray-900">RePlate</span>
+      </Link>
     </div>
   );
 };

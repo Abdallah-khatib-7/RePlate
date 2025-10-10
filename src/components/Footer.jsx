@@ -58,9 +58,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Legal</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Terms of Service</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Cookie Policy</a></li>
+              <li><Link to="/terms" className="text-gray-400 hover:text-white transition-colors duration-200">Terms Of Service</Link></li>
+              <li><Link to="/privacy" className="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</Link></li>
+              <li><Link to="/Cookies" className="text-gray-400 hover:text-white transition-colors duration-200">Cookies Policy</Link></li>
             </ul>
           </div>
 
@@ -69,7 +69,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © 2024 RePlate. All rights reserved. Made with ❤️ for a better world.
+            © 2025 RePlate. All rights reserved. Made with ❤️ for a better world.
           </p>
         </div>
       </div>
