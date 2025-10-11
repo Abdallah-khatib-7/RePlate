@@ -1,5 +1,6 @@
 // src/pages/About.jsx
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -85,18 +86,23 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-blue-500 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
               <div className="relative bg-white rounded-3xl p-8 transform group-hover:-translate-y-2 transition-all duration-500 shadow-2xl">
                 <div className="w-full h-80 bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[url('./assets/help.jpg')] bg-cover bg-center mix-blend-overlay opacity-20"></div>
-                  <div className="text-center">
+                  <div className="absolute inset-0 bg-[url('/about.png')] bg-cover bg-inherit  opacity-200"></div>
+              
+                {/*  this section was just to put RePlate Logo in the middle but i think this is better */}
+              
+                {/*  <div className="text-center">
                     <div className="w-24 h-24 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform duration-500">
-                      <span className="text-white text-4xl font-bold">RP</span>
                     </div>
                     <div className="space-y-2">
                       <div className="w-32 h-2 bg-green-300 rounded-full mx-auto transform group-hover:scale-x-110 transition-transform duration-500"></div>
                       <div className="w-28 h-2 bg-blue-300 rounded-full mx-auto transform group-hover:scale-x-110 transition-transform duration-500 delay-100"></div>
                       <div className="w-24 h-2 bg-green-200 rounded-full mx-auto transform group-hover:scale-x-110 transition-transform duration-500 delay-200"></div>
                     </div>
-                  </div>
-                </div>
+                  </div> */}
+
+
+                  
+                </div> 
               </div>
             </div>
           </div>
@@ -166,12 +172,12 @@ const About = () => {
             there's a place for you in the RePlate community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-green-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-600 transition-colors duration-200 shadow-lg hover:shadow-xl">
+            <Link to="/register" className="bg-green-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-600 transition-colors duration-200 shadow-lg hover:shadow-xl">
               Become a Partner
-            </button>
-            <button className="border-2 border-green-500 text-green-500 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-500 hover:text-white transition-all duration-200">
+            </Link>
+            <Link to="/how-it-works" className="border-2 border-green-500 text-green-500 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-500 hover:text-white transition-all duration-200">
               Learn More
-            </button>
+            </Link>
           </div>
         </div>
 

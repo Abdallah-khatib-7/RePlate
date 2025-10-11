@@ -1,7 +1,10 @@
 // src/pages/Contact.jsx
 import React, { useState, useEffect } from 'react';
+import ChatBot from '../components/ChatBot';
+
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false); // Add this state
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,37 +28,37 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
+    setIsSubmitting(true); // Start submitting
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     alert('Thank you for your message! We\'ll get back to you within 24 hours.');
     setFormData({ name: '', email: '', subject: '', message: '', inquiryType: 'general' });
-    setIsSubmitting(false);
+    setIsSubmitting(false); // End submitting
   };
 
+  // Update the Live Chat action to open the chatbot
   const contactMethods = [
     {
       icon: '📧',
       title: 'Email Us',
       description: 'Send us an email anytime',
-      details: 'hello@replate.com',
-      action: 'mailto:hello@replate.com'
+      details: 'RePlate@gmail.com',
+      action: 'mailto:abdallah.khatib2003@gmail.com'
     },
     {
       icon: '📞',
       title: 'Call Us',
       description: 'Mon-Fri from 9am to 6pm',
-      details: '+1 (555) 123-REPLATE',
-      action: 'tel:+15551237753'
+      details: '+961 03 806 359',
+      action: 'tel:+96103806359'
     },
     {
       icon: '💬',
       title: 'Live Chat',
       description: 'Get instant help',
       details: 'Start chatting now',
-      action: '#chat'
+      action: () => setIsChatOpen(true) // Change to function that opens chat
     },
     {
       icon: '📍',
@@ -65,6 +68,15 @@ const Contact = () => {
       action: 'https://maps.google.com'
     }
   ];
+
+  // Handle contact method click
+  const handleContactMethodClick = (method) => {
+    if (typeof method.action === 'function') {
+      method.action(); // Execute the function (opens chat)
+    } else if (typeof method.action === 'string') {
+      window.open(method.action, '_blank'); // Open URL
+    }
+  };
 
   const faqs = [
     {
@@ -121,10 +133,10 @@ const Contact = () => {
               </p>
 
               {contactMethods.map((method, index) => (
-                <a
+                <button
                   key={index}
-                  href={method.action}
-                  className={`flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group ${
+                  onClick={() => handleContactMethodClick(method)}
+                  className={`flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group w-full text-left ${
                     isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
                   }`}
                   style={{ transitionDelay: `${300 + index * 100}ms` }}
@@ -137,7 +149,7 @@ const Contact = () => {
                     <p className="text-gray-600 text-sm mb-2">{method.description}</p>
                     <p className="text-green-600 font-semibold">{method.details}</p>
                   </div>
-                </a>
+                </button>
               ))}
             </div>
 
@@ -171,120 +183,148 @@ const Contact = () => {
               <h2 className="text-3xl font-bold text-gray-900 mb-2">Send us a Message</h2>
               <p className="text-gray-600 mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                
-                {/* Name and Email */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                      placeholder="Enter your full name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                      placeholder="Enter your email"
-                    />
-                  </div>
-                </div>
+              {/* ... rest of your form code remains the same ... */}
+              <form onSubmit={handleSubmit} className="space-y-8">
+  {/* Name and Email - Side by Side */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label className="block text-sm font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
+        Full Name *
+      </label>
+      <input
+        type="text"
+        name="name"
+        value={formData.name}
+        onChange={handleInputChange}
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white placeholder-gray-400"
+        placeholder="Enter your full name"
+        required
+      />
+    </div>
+    <div>
+      <label className="block text-sm font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
+        Email Address *
+      </label>
+      <input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleInputChange}
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white placeholder-gray-400"
+        placeholder="your.email@company.com"
+        required
+      />
+    </div>
+  </div>
 
-                {/* Inquiry Type and Subject */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Inquiry Type *
-                    </label>
-                    <select
-                      name="inquiryType"
-                      value={formData.inquiryType}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                    >
-                      <option value="general">General Inquiry</option>
-                      <option value="partnership">Partnership</option>
-                      <option value="support">Technical Support</option>
-                      <option value="feedback">Feedback</option>
-                      <option value="media">Media Inquiry</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Subject *
-                    </label>
-                    <input
-                      type="text"
-                      name="subject"
-                      required
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                      placeholder="What is this regarding?"
-                    />
-                  </div>
-                </div>
+  {/* Inquiry Type and Subject - Side by Side */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label className="block text-sm font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
+        Inquiry Type *
+      </label>
+      <select
+        name="inquiryType"
+        value={formData.inquiryType}
+        onChange={handleInputChange}
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white text-gray-800"
+      >
+        <option value="general">General Inquiry</option>
+        <option value="partnership">Partnership Opportunity</option>
+        <option value="support">Technical Support</option>
+        <option value="billing">Billing Question</option>
+        <option value="feature">Feature Request</option>
+        <option value="press">Press & Media</option>
+        <option value="careers">Careers</option>
+      </select>
+    </div>
+    <div>
+      <label className="block text-sm font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
+        Subject *
+      </label>
+      <input
+        type="text"
+        name="subject"
+        value={formData.subject}
+        onChange={handleInputChange}
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white placeholder-gray-400"
+        placeholder="Brief subject of your message"
+        required
+      />
+    </div>
+  </div>
 
-                {/* Message */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    name="message"
-                    required
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 resize-none"
-                    placeholder="Tell us how we can help you..."
-                  />
-                </div>
+  {/* Message - Full Width */}
+  <div>
+    <label className="block text-sm font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
+      Message *
+    </label>
+    <textarea
+      name="message"
+      value={formData.message}
+      onChange={handleInputChange}
+      rows={6}
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white placeholder-gray-400 resize-none"
+      placeholder="Please provide detailed information about your inquiry..."
+      required
+    />
+  </div>
 
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:transform-none relative overflow-hidden group"
-                >
-                  <span className="relative z-10">
-                    {isSubmitting ? 'Sending Message...' : 'Send Message'}
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
-                  {/* Loading Animation */}
-                  {isSubmitting && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    </div>
-                  )}
-                </button>
+  {/* Priority and Additional Options */}
+  <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+    <label className="flex items-center space-x-3 cursor-pointer group">
+      <input 
+        type="checkbox" 
+        className="w-4 h-4 text-green-600 rounded focus:ring-green-500 border-gray-300"
+      />
+      <span className="text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-200">
+        This is an urgent matter requiring immediate attention
+      </span>
+    </label>
+    <p className="text-xs text-gray-500 mt-2 ml-7">
+      Urgent requests will be prioritized and responded to within 2 business hours
+    </p>
+  </div>
 
-                {/* Privacy Note */}
-                <p className="text-center text-gray-500 text-sm">
-                  By submitting this form, you agree to our privacy policy. We'll never share your information with third parties.
-                </p>
+  {/* Submit Button */}
+  <div className="pt-4">
+    <button
+      type="submit"
+      disabled={isSubmitting}
+      className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:transform-none disabled:cursor-not-allowed relative overflow-hidden group"
+    >
+      <span className="relative z-10 flex items-center justify-center space-x-2">
+        {isSubmitting ? (
+          <>
+            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            <span>Processing Your Message...</span>
+          </>
+        ) : (
+          <>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+            <span>Send Message</span>
+          </>
+        )}
+      </span>
+      
+      {/* Hover effect overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-green-700 to-green-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    </button>
 
-              </form>
+    {/* Privacy Notice */}
+    <p className="text-center text-gray-500 text-xs mt-4">
+      By submitting this form, you agree to our Privacy Policy and consent to our team contacting you 
+      regarding your inquiry. We respect your privacy and will never share your information with third parties.
+    </p>
+  </div>
+</form>
             </div>
 
             {/* Social Links */}
-            <div className={`mt-8 text-center transform transition-all duration-500 delay-800 ${
+
+           {/* <div className={`mt-8 text-center transform transition-all duration-500 delay-800 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}>
               <p className="text-gray-600 mb-4">Follow us on social media</p>
@@ -299,12 +339,15 @@ const Contact = () => {
                   </a>
                 ))}
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>
 
       </div>
+
+      {/* Render ChatBot when open */}
+      {isChatOpen && <ChatBot onClose={() => setIsChatOpen(false)} />}
     </div>
   );
 };
