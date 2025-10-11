@@ -188,7 +188,7 @@ const Contact = () => {
   {/* Name and Email - Side by Side */}
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div>
-      <label className="block text-sm font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
+      <label className="block  font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
         Full Name *
       </label>
       <input
@@ -202,7 +202,7 @@ const Contact = () => {
       />
     </div>
     <div>
-      <label className="block text-sm font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
+      <label className="block  font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
         Email Address *
       </label>
       <input
@@ -220,7 +220,7 @@ const Contact = () => {
   {/* Inquiry Type and Subject - Side by Side */}
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div>
-      <label className="block text-sm font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
+      <label className="block  font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
         Inquiry Type *
       </label>
       <select
@@ -239,7 +239,7 @@ const Contact = () => {
       </select>
     </div>
     <div>
-      <label className="block text-sm font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
+      <label className="block  font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
         Subject *
       </label>
       <input
@@ -256,7 +256,7 @@ const Contact = () => {
 
   {/* Message - Full Width */}
   <div>
-    <label className="block text-sm font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
+    <label className="block font-semibold text-gray-800 mb-3 uppercase tracking-wide text-xs">
       Message *
     </label>
     <textarea
