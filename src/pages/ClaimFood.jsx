@@ -1,5 +1,7 @@
 // src/pages/ClaimFood.jsx
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
+
 const ClaimFood = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -111,7 +113,8 @@ const ClaimFood = () => {
     { id: 'pizza', name: 'Pizza', icon: '🍕' },
     { id: 'salads', name: 'Salads', icon: '🥗' },
     { id: 'asian', name: 'Asian', icon: '🍱' },
-    { id: 'bakery', name: 'Bakery', icon: '🥐' }
+    { id: 'bakery', name: 'Bakery', icon: '🥐' },
+    { id: 'more', name: 'More', icon: '...' },
   ];
 
   const filteredItems = foodItems.filter(item => {
@@ -185,9 +188,9 @@ const ClaimFood = () => {
             <span className="text-2xl font-bold text-green-600">${item.discountPrice}</span>
             <span className="text-gray-400 line-through text-sm">${item.originalPrice}</span>
           </div>
-          <button className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-200 transform hover:scale-105">
+          <Link to="/register" className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-200 transform hover:scale-105">
             Claim Now
-          </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -51,7 +51,7 @@ const MainDashboard = () => {
       customers: 23
     }
   };
-
+ 
   const data = userType === 'foodLover' ? foodLoverData : restaurantData;
 
   const QuickStatCard = ({ title, value, subtitle, icon, color }) => (

@@ -2,13 +2,12 @@
 import React, { useState, useEffect } from 'react';
 const Dashboard = () => {
   const [isVisible, setIsVisible] = useState(false);
-  // Removed unused activeTab state
 
   useEffect(() => {
     setIsVisible(true);
     return () => setIsVisible(false);
   }, []);
-
+  
   // Mock user data
   const userStats = {
     mealsClaimed: 12,

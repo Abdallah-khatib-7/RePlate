@@ -1,10 +1,9 @@
 // src/pages/NotFound.jsx
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 const NotFound = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [foodEmoji, setFoodEmoji] = useState('🍕');
-  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -23,12 +22,12 @@ const NotFound = () => {
     };
   }, []);
 
-  const quickLinks = [
+  /*const quickLinks = [
     { path: '/', label: 'Home', icon: '🏠' },
     { path: '/claim-food', label: 'Find Food', icon: '🔍' },
     { path: '/login', label: 'Login', icon: '🔐' },
     { path: '/register', label: 'Sign Up', icon: '👤' }
-  ];
+  ]; */
 
   const funFacts = [
     "Every year, 1.3 billion tons of food is wasted globally",
@@ -98,7 +97,8 @@ const NotFound = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className={`flex flex-col sm:flex-row gap-4 justify-center mb-8 transform transition-all duration-500 delay-500 ${
+
+        {/* <div className={`flex flex-col sm:flex-row gap-4 justify-center mb-8 transform transition-all duration-500 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <button
@@ -115,12 +115,14 @@ const NotFound = () => {
               <span>🏠</span>
               <span>Go Home</span>
             </Link>
-          </div>
+          </div> */}
 
           {/* Quick Links */}
-          <div className={`transform transition-all duration-500 delay-600 ${
+          
+          {/* <div className={`transform transition-all duration-500 delay-600 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
+
             <h3 className="text-lg font-semibold text-gray-700 mb-4">Quick Navigation</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {quickLinks.map((link, index) => (
@@ -137,8 +139,8 @@ const NotFound = () => {
                 </Link>
               ))}
             </div>
-          </div>
-        </div>
+          </div> */}
+        </div> 
 
         {/* Floating Food Elements */}
         <div className="flex justify-center space-x-4 mb-8">
@@ -171,7 +173,7 @@ const NotFound = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="mailto:support@replate.com"
+              href="mailto:abdallah.khatib2003@gmail.com"
               className="flex items-center justify-center space-x-2 bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-200"
             >
               <span>📧</span>

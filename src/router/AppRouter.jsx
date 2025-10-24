@@ -2,7 +2,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 import ScrollToTop from '../components/ScrollTop';
-// Import pages from YOUR EXACT STRUCTURE
 import Landing from '../pages/Landing';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
@@ -25,7 +24,7 @@ import HowItWorks from '../pages/HowItWorks';
 const AppRouter = () => {
   return (
     <>
-      <ScrollToTop /> {/* MOVE THIS OUTSIDE Routes */}
+      <ScrollToTop /> 
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Landing />} />
