@@ -55,7 +55,7 @@ const Landing = () => {
     { 
       number: '8%', 
       label: 'Global Greenhouse Gases from Food Waste', 
-      image: 'https://avristech.com/wp-content/uploads/2021/02/chugg-reduces-greenhouse-gas.jpg', 
+      image: 'https://plus.unsplash.com/premium_photo-1679607694659-c1e07cedef95?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 
       color: 'blue' 
     },
     { 

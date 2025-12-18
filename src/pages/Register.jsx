@@ -1,6 +1,8 @@
 // src/pages/Register.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import TermsOfService from './TermsOfService';
+import PrivacyPolicy from './PrivacyPolicy';
 
 const Register = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -387,10 +389,20 @@ const Register = () => {
                   />
                   <span className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-200">
                     I agree to the{' '}
-                    <a href="#" className="text-green-600 hover:text-green-700 font-medium">Terms of Service</a>
+
+
+
+                     <Link to='/terms' className="text-green-600 hover:text-green-700 font-medium">Terms of Service</Link>
+
+
                     {' '}and{' '}
-                    <a href="#" className="text-green-600 hover:text-green-700 font-medium">Privacy Policy</a>
+
+
+                    <Link to='/privacy' href="#" className="text-green-600 hover:text-green-700 font-medium">Privacy Policy</Link>
                     . I understand that my data will be processed in accordance with RePlate's privacy practices.
+
+
+
                   </span>
                 </label>
               </div>
@@ -399,7 +411,7 @@ const Register = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:transform-none relative overflow-hidden group transform duration-500 delay-800"
+                className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all  disabled:opacity-50 disabled:transform-none relative overflow-hidden group transform duration-500 delay-800"
               >
                 <span className="relative z-10">
                   {isLoading ? 'Creating Account...' : `Join as ${userType === 'foodLover' ? 'Food Lover' : 'Restaurant Partner'}`}

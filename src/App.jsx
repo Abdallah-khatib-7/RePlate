@@ -6,10 +6,18 @@ import Footer from './components/Footer';
 import AppRouter from './router/AppRouter';      
 import MainDashboard from './pages/MainDashboard';
 import  './styles/globals.css';
-
+import { LogoWithText } from './components/logo';
+import { useEffect } from 'react';
       
 
 function App() {
+  
+  useEffect(() => {
+    // Preload logo
+    const img = new Image();
+    img.src = LogoWithText;
+  }, []);
+  
   return (
     <AuthProvider>
       <Router>

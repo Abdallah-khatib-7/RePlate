@@ -1,6 +1,7 @@
 // src/components/Footer.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Logo } from './logo'; // Importing Logo component
 
 const Footer = () => {
   return (
@@ -12,10 +13,8 @@ const Footer = () => {
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center space-x-3 mb-4">
               
-              <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
-                
-                <span className="text-white font-bold">R</span> 
-
+              <div className="flex-shrink-0">
+                <Logo className="w-10 h-10" />
               </div>
               <span className="text-xl font-bold">RePlate</span>
             </Link>

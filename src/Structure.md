@@ -1,7 +1,6 @@
 ```
 └── 📁src
     └── 📁assets
-        ├── help.jpg
         ├── logo.png
     └── 📁components
         ├── ChatBot.jsx
@@ -11,6 +10,7 @@
         ├── logo.jsx
         ├── Navbar.jsx
         ├── ProtecedRoute.jsx
+        ├── ScrollTop.jsx
     └── 📁context
         ├── AuthContext.jsx
         ├── ChatContext.jsx
@@ -20,15 +20,22 @@
     └── 📁pages
         ├── About.jsx
         ├── Admin.jsx
+        ├── Blog.jsx
         ├── ClaimFood.jsx
         ├── Contact.jsx
+        ├── Cookies.jsx
         ├── Dashboard.jsx
+        ├── FAQ.jsx
+        ├── HowItWorks.jsx
         ├── Landing.jsx
         ├── Login.jsx
         ├── MainDashboard.jsx
         ├── NotFound.jsx
         ├── PostFood.jsx
+        ├── PrivacyPolicy.jsx
         ├── Register.jsx
+        ├── Support.jsx
+        ├── TermsOfService.jsx
     └── 📁router
         ├── AppRouter.jsx
     └── 📁services
