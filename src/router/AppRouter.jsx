@@ -19,6 +19,7 @@ import FAQ from '../pages/FAQ';
 import Support from '../pages/Support';
 import Blog from '../pages/Blog';
 import HowItWorks from '../pages/HowItWorks';
+import ForgotPassword from '../pages/ForgotPassword'; 
 
 const AppRouter = () => {
   return (
@@ -39,6 +40,7 @@ const AppRouter = () => {
         <Route path="/main-dashboard" element={<MainDashboard />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
+         <Route path="/forgot-password" element={<ForgotPassword />} />
           
         {/* Protected Routes */}
         <Route path="/dashboard" element={<Dashboard />} />

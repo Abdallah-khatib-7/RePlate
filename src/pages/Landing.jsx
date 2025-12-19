@@ -13,7 +13,7 @@ const Landing = () => {
     <div>
       <HeroSection />
       
-{/* Impact & Statistics Section - EYE-CATCHING */}
+{/* Impact & Statistics Section*/}
 <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50 relative overflow-hidden">
   {/* Background Elements */}
   <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=2000')] bg-cover bg-center opacity-5"></div>
@@ -37,7 +37,7 @@ const Landing = () => {
       </p>
     </div>
 
-    {/* Impact Stats - VISUALLY STUNNING WITH IMAGES */}
+    {/* Impact Stats*/}
 <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
   {[
     { 
@@ -55,7 +55,7 @@ const Landing = () => {
     { 
       number: '8%', 
       label: 'Global Greenhouse Gases from Food Waste', 
-      image: 'https://avristech.com/wp-content/uploads/2021/02/chugg-reduces-greenhouse-gas.jpg', 
+      image: 'https://plus.unsplash.com/premium_photo-1679607694659-c1e07cedef95?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 
       color: 'blue' 
     },
     { 
@@ -123,7 +123,7 @@ const Landing = () => {
   ))}
 </div>
 
-    {/* How RePlate Solves This - PERSUASIVE FLOW */}
+    {/* How RePlate Solves This  */}
     <div className="bg-white rounded-3xl shadow-2xl p-8 mb-16">
       <div className="text-center mb-12">
         <h3 className="text-3xl font-bold text-gray-900 mb-4">
@@ -134,7 +134,7 @@ const Landing = () => {
         </p>
       </div>
 
-      {/* Solution Steps - VISUAL JOURNEY */}
+      {/* Solution Steps  */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {[
           {
@@ -191,7 +191,7 @@ const Landing = () => {
       </div>
     </div>
 
-    {/* URGENT CALL TO ACTION - CAN'T RESIST */}
+    {/* URGENT CALL TO ACTION  */}
     <div className="text-center">
       <div className="bg-gradient-to-r from-green-500 to-blue-500 rounded-3xl p-12 text-white relative overflow-hidden">
         {/* Background Pattern */}
@@ -228,7 +228,7 @@ const Landing = () => {
   </div>
 </section>
 
-{/* Social Proof Section - BUILD TRUST */}
+{/* Social Proof Section */}
 <section className="py-16 bg-white border-t border-gray-100">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-12">

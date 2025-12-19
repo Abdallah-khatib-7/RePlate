@@ -50,7 +50,7 @@ const Chatbot = () => {
     } catch  {
       const errorMessage = {
         id: Date.now() + 1,
-        text: "I'm currently optimizing my AI brain! 🤖 Please check your OpenAI API key and make sure you have credits. Then try again!",
+        text: "I'm currently optimizing my AI brain! 🤖 Please check your connection or server then try again!",
         isUser: false,
         timestamp: new Date()
       };
@@ -102,7 +102,7 @@ const Chatbot = () => {
                 </div>
                 <div>
                   <h3 className="font-bold">RePlate AI</h3>
-                  <p className="text-green-100 text-sm">Online • Powered by GPT</p>
+                  <p className="text-green-100 text-sm">Online • Powered by RePlate Brain</p>
                 </div>
               </div>
               <div className="flex space-x-2">
@@ -178,7 +178,7 @@ const Chatbot = () => {
                 </button>
               </div>
               <p className="text-xs text-gray-500 text-center mt-2">
-                Powered by OpenAI GPT • Ask me anything! 🌟
+                Powered by RePlate GPT • Ask me anything! 🌟
               </p>
             </div>
           </div>

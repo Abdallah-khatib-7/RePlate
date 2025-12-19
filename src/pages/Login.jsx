@@ -1,6 +1,9 @@
 // src/pages/Login.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
+
 const Login = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,211 +37,224 @@ const Login = () => {
     // For demo purposes - always succeed
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('userEmail', formData.email);
+    localStorage.setItem('authMethod', 'email');
     
     setIsLoading(false);
-    navigate('/main-dashboard.jsx');
+    navigate('/main-dashboard');
   };
 
-  const socialLogins = [
-    { provider: 'google', icon: '🔍', color: 'bg-red-500 hover:bg-red-600', text: 'Google' },
-    { provider: 'facebook', icon: '📘', color: 'bg-blue-500 hover:bg-blue-600', text: 'Facebook' },
-    { provider: 'apple', icon: '🍎', color: 'bg-gray-800 hover:bg-gray-900', text: 'Apple' }
-  ];
+  const handleGoogleSuccess = (credentialResponse) => {
+    // Decode the JWT token to get user info
+    const decoded = jwtDecode(credentialResponse.credential);
+    
+    // Store user info and login status
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userEmail', decoded.email);
+    localStorage.setItem('userName', decoded.name || 'User');
+    localStorage.setItem('authMethod', 'google');
+    localStorage.setItem('googleUser', JSON.stringify(decoded));
+    
+    // Redirect to dashboard
+    navigate('/main-dashboard');
+  };
+
+  const handleGoogleError = () => {
+    console.log('Google Login Failed');
+    alert('Google login failed. Please try again.');
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className={`w-full max-w-md transform transition-all duration-1000 ${
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-cyan-50 to-blue-50 flex items-center justify-center p-4">
+      {/* Simplified Background - Reduced from 3 animated blobs to 1 static */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-100 rounded-full opacity-10"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-100 rounded-full opacity-10"></div>
+      </div>
+
+      <div className={`relative w-full max-w-4xl transform transition-all duration-700 ${
         isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95'
       }`}>
         
-        {/* Login Card */}
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-          
-          {/* Header Section */}
-          <div className="bg-gradient-to-r from-green-500 to-blue-500 p-8 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-white opacity-10"></div>
-            <div className="relative z-10">
-              <Link to="/" className="inline-flex items-center space-x-3 mb-4">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-green-600 font-bold text-xl">R</span>
-                </div>
-                <span className="text-2xl font-bold text-white">RePlate</span>
-              </Link>
-              <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
-              <p className="text-blue-100">Sign in to your account to continue your food-saving journey</p>
-            </div>
+        <div className="bg-white/95 rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
             
-            {/* Floating Elements */}
-            <div className="absolute top-4 left-4 w-8 h-8 bg-white opacity-20 rounded-full animate-bounce"></div>
-            <div className="absolute bottom-4 right-4 w-6 h-6 bg-white opacity-30 rounded-full animate-pulse"></div>
-          </div>
+            {/* Left Side - Brand & Visual */}
+            <div className="bg-gradient-to-br from-emerald-600 to-cyan-600 p-8 flex flex-col justify-between relative overflow-hidden">
+              {/* Static background pattern - removed animations */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-12 translate-x-12"></div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/10 rounded-full translate-y-10 -translate-x-10"></div>
+              
+              <div className="relative z-10">
+                <Link to="/" className="inline-flex items-center space-x-3 mb-6">
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow">
+                    <span className="text-emerald-600 font-bold text-xl">R</span>
+                  </div>
+                  <span className="text-2xl font-bold text-white">RePlate</span>
+                </Link>
+                
+                <h1 className="text-3xl font-bold text-white mb-4 leading-tight">
+                  Welcome Back to <br />Your <span className="text-cyan-200">Food Saving</span> Journey
+                </h1>
+                
+                <p className="text-emerald-100 leading-relaxed mb-6">
+                  Continue fighting food waste and feeding communities. 
+                  Every login helps save meals and reduce environmental impact.
+                </p>
+              </div>
 
-          {/* Login Form */}
-          <form onSubmit={handleSubmit} className="p-8 space-y-6">
-            
-            {/* Email Input */}
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700 flex items-center justify-between">
-                <span>Email Address</span>
-                <span className="text-green-600 text-xs">* Required</span>
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <span className="text-gray-400 text-lg">📧</span>
-                </div>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 placeholder-gray-400 text-lg"
-                  placeholder="Enter your email"
-                />
+              {/* Stats - Simplified */}
+              <div className="relative z-10 grid grid-cols-3 gap-4 pt-6 border-t border-white/20">
+                {[
+                  { number: '10K+', label: 'Meals Saved' },
+                  { number: '200+', label: 'Partners' },
+                  { number: '50+', label: 'Cities' }
+                ].map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-xl font-bold text-white mb-1">{stat.number}</div>
+                    <div className="text-emerald-200 text-xs">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Password Input */}
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700 flex items-center justify-between">
-                <span>Password</span>
-                <span className="text-green-600 text-xs">* Required</span>
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <span className="text-gray-400 text-lg">🔒</span>
+            {/* Right Side - Login Form */}
+            <div className="p-8">
+              <div className="max-w-sm mx-auto w-full">
+                <div className="text-center mb-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">Sign In</h2>
+                  <p className="text-gray-600 text-sm">Access your RePlate account</p>
                 </div>
-                <input
-                  type="password"
-                  name="password"
-                  required
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  className="w-full pl-12 pr-12 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 placeholder-gray-400 text-lg"
-                  placeholder="Enter your password"
-                />
-                <button
-                  type="button"
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors duration-200"
-                >
-                  👁️
-                </button>
-              </div>
-            </div>
 
-            {/* Remember Me & Forgot Password */}
-            <div className="flex items-center justify-between">
-              <label className="flex items-center space-x-3 cursor-pointer group">
-                <div className="relative">
-                  <input 
-                    type="checkbox" 
-                    name="rememberMe"
-                    checked={formData.rememberMe}
-                    onChange={handleInputChange}
-                    className="w-5 h-5 text-green-600 rounded focus:ring-green-500 border-gray-300" 
+                {/* Google Sign In */}
+                <div className="mb-6">
+                  <GoogleLogin
+                    onSuccess={handleGoogleSuccess}
+                    onError={handleGoogleError}
+                    theme="filled_blue"
+                    size="large"
+                    text="continue_with"
+                    shape="rectangular"
+                    width="100%"
                   />
                 </div>
-                <span className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-200">
-                  Remember me
-                </span>
-              </label>
-              <Link 
-                to="/forgot-password" 
-                className="text-sm text-green-600 hover:text-green-700 font-medium transition-colors duration-200"
-              >
-                Forgot password?
-              </Link>
-            </div>
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:transform-none relative overflow-hidden group"
-            >
-              <span className="relative z-10">
-                {isLoading ? 'Signing In...' : 'Sign In'}
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              {/* Loading Animation */}
-              {isLoading && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                {/* Divider */}
+                <div className="relative mb-6">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gray-300"></div>
+                  </div>
+                  <div className="relative flex justify-center text-sm">
+                    <span className="px-4 bg-white text-gray-500">Or continue with email</span>
+                  </div>
                 </div>
-              )}
-            </button>
 
-            {/* Divider */}
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300"></div>
+                {/* Email Login Form */}
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Email Address
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200 placeholder-gray-400"
+                        placeholder="Enter your email"
+                      />
+                      <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                        <svg className="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Password
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="password"
+                        name="password"
+                        required
+                        value={formData.password}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200 placeholder-gray-400"
+                        placeholder="Enter your password"
+                      />
+                      <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                        <svg className="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <label className="flex items-center space-x-2 cursor-pointer">
+                      <input 
+                        type="checkbox" 
+                        name="rememberMe"
+                        checked={formData.rememberMe}
+                        onChange={handleInputChange}
+                        className="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500 border-gray-300" 
+                      />
+                      <span className="text-sm text-gray-600">
+                        Remember me
+                      </span>
+                    </label>
+                    <Link 
+                      to="/forgot-password" 
+                      className="text-sm text-emerald-600 hover:text-emerald-700 font-semibold transition-colors duration-200"
+                    >
+                      Forgot password?
+                    </Link>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full bg-gradient-to-r from-emerald-600 to-cyan-600 text-white py-3 rounded-lg font-semibold hover:shadow-md transition-all duration-300 disabled:opacity-50 relative"
+                  >
+                    <span className="flex items-center justify-center space-x-2">
+                      {isLoading ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          <span>Signing In...</span>
+                        </>
+                      ) : (
+                        <>
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                          </svg>
+                          <span>Sign In</span>
+                        </>
+                      )}
+                    </span>
+                  </button>
+                </form>
+
+                {/* Sign Up Link */}
+                <div className="text-center pt-6 border-t border-gray-200 mt-6">
+                  <p className="text-gray-600 text-sm">
+                    Don't have an account?{' '}
+                    <Link 
+                      to="/register" 
+                      className="text-emerald-600 hover:text-emerald-700 font-semibold transition-colors duration-200 hover:underline"
+                    >
+                      Sign up for free
+                    </Link>
+                  </p>
+                </div>
               </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-3 bg-white text-gray-500">Or continue with</span>
-              </div>
             </div>
-
-            {/* Social Login Buttons */}
-            <div className="grid grid-cols-3 gap-3">
-              {socialLogins.map((social, index) => (
-                <button
-                  key={social.provider}
-                  type="button"
-                  className={`flex items-center justify-center space-x-2 py-3 rounded-xl text-white font-medium transition-all duration-300 transform hover:scale-105 ${social.color} ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                  }`}
-                  style={{ transitionDelay: `${200 + index * 100}ms` }}
-                >
-                  <span className="text-lg">{social.icon}</span>
-                  <span className="hidden sm:inline">{social.text}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* Sign Up Link */}
-            <div className="text-center pt-4">
-              <p className="text-gray-600">
-                Don't have an account?{' '}
-                <Link 
-                  to="/register" 
-                  className="text-green-600 hover:text-green-700 font-semibold transition-colors duration-200 underline"
-                >
-                  Sign up for free
-                </Link>
-              </p>
-            </div>
-
-          </form>
-
-          {/* Demo Credentials Notice */}
-          <div className="bg-green-50 border-t border-green-200 p-4 text-center">
-            <p className="text-sm text-green-700">
-              <span className="font-semibold">Demo:</span> Use any email and password to login
-            </p>
           </div>
         </div>
-
-        {/* Benefits Section */}
-        <div className={`mt-8 text-center transform transition-all duration-500 delay-500 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-        }`}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600">
-            <div className="flex items-center justify-center space-x-2">
-              <span>🍽️</span>
-              <span>Save on delicious meals</span>
-            </div>
-            <div className="flex items-center justify-center space-x-2">
-              <span>🌍</span>
-              <span>Reduce food waste</span>
-            </div>
-            <div className="flex items-center justify-center space-x-2">
-              <span>❤️</span>
-              <span>Support local businesses</span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   );
